@@ -10,6 +10,8 @@
 
 ### - For styling use Bootstrap together with your own CSS-file.
 
+### _!!! Extra: Added Semantic UI for React !!!_
+
 ## _**The Result:**_
 
-![Alt text](./public/DataTable.jpg)
+![Alt text](./public/DataTable1.jpg)
