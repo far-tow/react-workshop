@@ -42,7 +42,7 @@ const DataTable = () => {
 
 	const [studenList, setStudentList] = useState(initialData);
 	const [showDetails, setShowDetails] = useState(false);
-	const [showPerson, setShowPerson] = useState({
+	const [students, setStudents] = useState({
 		id: 0,
 		firstName: "",
 		lastName: "",
@@ -54,7 +54,7 @@ const DataTable = () => {
 
 	const TableHeader = () => {
 		return (
-			<thead className="">
+			<thead>
 				<tr className="text-danger">
 					<th>ID</th>
 					<th>FIRST NAME</th>
@@ -70,12 +70,12 @@ const DataTable = () => {
 	};
 
 	const TableAction = (props) => {
-		const showPerson = () => {
-			setShowPerson(props.showPerson);
+		const showStudentInfo = () => {
+			setStudents(props.studenData);
 			setShowDetails(true);
 		};
 		return (
-			<button className="btn btn-info" onClick={showDetails}>
+			<button className="btn btn-info" onClick={showStudentInfo}>
 				Details
 			</button>
 		);
@@ -85,28 +85,56 @@ const DataTable = () => {
 		const tableRows = props.info;
 		return (
 			<tbody>
-				{tableRows.map((showPerson) => {
-					const row = (
-						<tr className="text-info" key={showPerson.id}>
-							<td>{showPerson.id}</td>
-							<td>{showPerson.firstName}</td>
-							<td>{showPerson.lastName}</td>
-							<td>{showPerson.age}</td>
-							<td>{showPerson.birthDate}</td>
-							<td>{showPerson.country}</td>
-							<td>{showPerson.city}</td>
+				{tableRows.map((students) => {
+					const rows = (
+						<tr className="text-info" key={students.id}>
+							<td>{students.id}</td>
+							<td>{students.firstName}</td>
+							<td>{students.lastName}</td>
+							<td>{students.age}</td>
+							<td>{students.birthDate}</td>
+							<td>{students.country}</td>
+							<td>{students.city}</td>
 							<td>
-								<TableAction personData={showPerson} />
+								<TableAction studenData={students} />
 							</td>
 						</tr>
 					);
-					return row;
+					return rows;
 				})}
 			</tbody>
 		);
 	};
 
-	const ShowStudentDetails = () => {};
+	const ShowStudentDetails = () => {
+		if (showDetails === true) {
+			return (
+				<div className="card">
+					<div className="card-header bg-dark text-white">
+						<h2>Student information</h2>
+					</div>
+					<div className="card-body">
+						<p>Id: {students.id}</p>
+						<p>First Name: {students.firstName}</p>
+						<p>Last Name: {students.lastName}</p>
+						<p>Age: {students.age}</p>
+						<p>Birth Date: {students.birthDate}</p>
+						<p>Country: {students.country}</p>
+						<p>City: {students.city}</p>
+						<button
+							className="btn btn-danger"
+							onClick={() => {
+								setStudents({});
+								setShowDetails(false);
+							}}
+						>
+							Hide
+						</button>
+					</div>
+				</div>
+			);
+		}
+	};
 
 	return (
 		<div className="container">
@@ -114,6 +142,7 @@ const DataTable = () => {
 				<TableHeader />
 				<TableRow info={studenList} />
 			</table>
+			<ShowStudentDetails students={students} />
 		</div>
 	);
 };

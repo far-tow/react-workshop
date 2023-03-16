@@ -1,0 +1,9 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.card {
+	width: 300px;
+	margin: 0 auto;
+}
