@@ -12,4 +12,4 @@
 
 ## _**The Result:**_
 
-![Alt text](public/DataTable.jpg)
+![Alt text](./public/DataTable.jpg)
