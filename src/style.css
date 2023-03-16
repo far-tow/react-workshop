@@ -6,4 +6,11 @@
 .card {
 	width: 300px;
 	margin: 0 auto;
+	background-color: rgba(191, 224, 172, 0.445);
+}
+.header {
+	text-align: center;
+}
+.container {
+	padding-top: 60px;
 }

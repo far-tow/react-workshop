@@ -75,8 +75,9 @@ const DataTable = () => {
 			setShowDetails(true);
 		};
 		return (
-			<button className="btn btn-info" onClick={showStudentInfo}>
-				Details
+			<button className="ui inverted purple button" onClick={showStudentInfo}>
+				Details&nbsp;&nbsp;
+				<i class="info circle icon"></i>
 			</button>
 		);
 	};
@@ -93,7 +94,10 @@ const DataTable = () => {
 							<td>{students.lastName}</td>
 							<td>{students.age}</td>
 							<td>{students.birthDate}</td>
-							<td>{students.country}</td>
+							<td>
+								{students.country}&nbsp;&nbsp;
+								<i class="se flag"></i>
+							</td>
 							<td>{students.city}</td>
 							<td>
 								<TableAction studenData={students} />
@@ -119,16 +123,20 @@ const DataTable = () => {
 						<p>Last Name: {students.lastName}</p>
 						<p>Age: {students.age}</p>
 						<p>Birth Date: {students.birthDate}</p>
-						<p>Country: {students.country}</p>
+						<p>
+							Country: {students.country}&nbsp;&nbsp;
+							<i class="se flag"></i>
+						</p>
 						<p>City: {students.city}</p>
 						<button
-							className="btn btn-danger"
+							className="ui inverted orange button"
 							onClick={() => {
 								setStudents({});
 								setShowDetails(false);
 							}}
 						>
-							Hide
+							Hide&nbsp;&nbsp;
+							<i className="share square outline icon"></i>
 						</button>
 					</div>
 				</div>
@@ -138,7 +146,8 @@ const DataTable = () => {
 
 	return (
 		<div className="container">
-			<table className="table table-striped table-dark border">
+			<h1 className="purple column ui header">Student table</h1>
+			<table className="ui selectable inverted table">
 				<TableHeader />
 				<TableRow info={studenList} />
 			</table>
