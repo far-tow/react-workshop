@@ -12,6 +12,10 @@
 
 ### _!!! Extra: Added Semantic UI for React !!!_
 
+## You can see it live here:
+
+<https://far-tow.github.io/react-practice/>
+
 ## _**The Result:**_
 
 ![Alt text](./public/DataTable1.jpg)
